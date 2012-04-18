@@ -1,0 +1,11 @@
+#!/usr/bin/perl 
+
+print "\U mm hello\E\n";
+print 5 x 4;
+print "\n";
+print 5 * "12arthur";
+print "\n";
+
+$line = <stdin>;
+$result = chomp $line;
+print $result;
