@@ -10,3 +10,5 @@ if(/art/)
 {
     print "match\n";
 }
+print if(/\barthur\b/);
+print "\n";
