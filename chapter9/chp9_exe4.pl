@@ -5,4 +5,13 @@
 use warnings;
 use strict;
 
-
+$#ARGV >= 0 or die("Usage: $0 filenames");
+$^I = ".bak";
+while(<>)
+{
+    print;
+    if(/^#!/)
+    {
+        print "## Copyright (C) 2012 by zhangfeng\n";
+    }
+}

@@ -5,4 +5,10 @@
 use warnings;
 use strict;
 
-
+$#ARGV >= 0 or die("Usage: $0 filenames");
+$^I = '.out';
+while(<>)
+{
+    s/fred/Larry/gi;
+    print;
+}

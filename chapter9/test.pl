@@ -1,4 +1,5 @@
 #!/usr/bin/perl
+## Copyright (C) 2012 by zhangfeng
 #  
 # Author:zhangfeng  cst.feng@gmail.com  2012-05-17
 
