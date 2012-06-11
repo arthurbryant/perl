@@ -4,3 +4,7 @@
 
 use strict; 
 use warnings;
+
+my $m;
+$m = <stdin>;
+($m > 10) || print "come here";

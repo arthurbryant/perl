@@ -5,8 +5,16 @@
 use strict; 
 use warnings;
 
-while(<>)
+my @people = qw{arthur bryant wendy deuso arthur};
+my %count;
+$count{$_}++ foreach @people;
+=pod
+foreach (my $k, my $v) (%count)
 {
-    chomp;
-    print $_, "R\n";
+    print $k, "=>", $v;
+}
+=cut
+while((my $key, my $value) = each %count)
+{
+    print $key, " => ", $value, "\n";
 }

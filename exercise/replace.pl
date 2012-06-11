@@ -4,3 +4,8 @@
 
 use strict; 
 use warnings;
+
+for($_="arthur"; s/(.)//;)
+{
+    print $_, "\n";
+}
