@@ -16,7 +16,7 @@ my @files = `ls`;
 foreach my $old_file (@files)
 {
     chomp($old_file);
-    if($old_file =~/chp\d(_exe\d\.pl)/)
+    if($old_file =~ /chp\d+(_exe\d+\.pl)/)
     {
         my $new_file = "chp" . $chp_num . $1;
         # change filenames
