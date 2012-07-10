@@ -5,5 +5,15 @@
 use warnings;
 use strict;
 
-my %scores = {"arthur" => 97, "bryant" => 67, "tom" => 89, "kitty" => 45};
+die "Can not get string: $!" unless defined(my $str = <>);
+chomp $str;
+die "Can not get substring: $!" unless defined(my $substr = <>);
+chomp $substr;
 
+my $pos = 0; 
+while(($pos = index($str, $substr, $pos)) != -1)
+{
+	print $pos, " ";
+	++$pos;
+}
+print "\n";

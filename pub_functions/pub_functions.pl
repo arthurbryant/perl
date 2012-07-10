@@ -18,14 +18,9 @@ sub random_num
     while(--$numbers > 0)
     {
     	my $rand_num = int(rand $end);
-		print $rand_num;
+		#print $rand_num, " ";
     	push @array, $rand_num;
     }
-    print "@array";
-    print "\n\n\n";
-    my @sort_result = sort {$a <=> $b} @array;
-    print "@sort_result";
-    print "\n";
 
 	return @array;
 }

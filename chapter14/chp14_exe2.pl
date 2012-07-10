@@ -5,17 +5,17 @@
 use warnings;
 use strict;
 
-my $i = 0;
-my @array;
-while($i < 100)
+my %last_name = qw{ 
+		fred flintstone Wilma Flintstone Barney Rubble
+		betty rubble Bamm-Bamm Rubble PEBBLES FLINTSTONE
+		};
+sub by_name
 {
-	++$i;
-	my $rand_num = int(rand 1000);
-	push @array, $rand_num;
+	"\L$a" cmp "\L$b" or
+	$last_name{"\L$a"} cmp $last_name{"\L$b"};
 }
-print "@array";
-print "\n\n\n";
-#my @sort_result = sort {$a <=> $b} @array;
-my @sort_result = sort {$b <=> $a} @array;
-print "@sort_result";
-print "\n";
+my @names = sort by_name keys %last_name;
+foreach (@names)
+{
+	print "$_ $last_name{$_}\n"; 
+}

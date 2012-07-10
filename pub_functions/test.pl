@@ -10,4 +10,4 @@ require "./print.pl";
 
 my @result = &random_num();
 
-&print_array(@result);
+&print_num_array(\@result);

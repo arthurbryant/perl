@@ -5,11 +5,12 @@
 use warnings;
 use strict;
 
-sub print_array
+sub print_num_array
 {
 	my $i = 1;
 	my $num_of_line = 10;
-	foreach (@_)
+	my ($temp) = @_;
+	foreach (@$temp)
 	{
 		printf("%-6d ", $_);
 		print "\n" if($i++ % 10 == 0);
@@ -17,9 +18,18 @@ sub print_array
 	print "\n";
 }
 
+sub print_str_array
+{
+	foreach (@_)
+	{
+		printf("%s\n", $_);
+	}
+	print "\n";
+}
 sub print_hash
 {
-	while((my $k, my $v) = each %@_)
+	my ($temp) = @_;
+	while((my $k, my $v) = each %$temp)
 	{
 		print("$k => $v\n");
 	}
