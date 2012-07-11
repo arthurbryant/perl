@@ -12,15 +12,20 @@ while(defined(my $input = <>))
 {
 	exit 1 if($input =~ /^\s+$/);
 	chomp $input;
+	my @matches;
 	eval
 	{
-		my @result = grep { /$input/ } @contents;
-		print "@result";
-		print "\nnumber: @result\n";
+		@matches = grep { /$input/ } @contents;
 	};
 	if($@)
 	{
 		die "$@";
+	}
+	else
+	{
+		print map "$_\n", @matches;
+		print "\n";
+		print "number:", scalar @matches, "\n";
 	}
 }
 
