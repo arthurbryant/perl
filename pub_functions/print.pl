@@ -20,7 +20,8 @@ sub print_num_array
 
 sub print_str_array
 {
-	foreach (@_)
+	my ($strs) = @_;
+	foreach (@$strs)
 	{
 		printf("%s\n", $_);
 	}

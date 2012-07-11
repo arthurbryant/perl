@@ -8,14 +8,13 @@ use strict;
 
 sub random_num
 {
-    if(@ARGV < 2)
+    if(@_ < 2)
     {
     	die "Usage: $0 numbers end_ranage";
     }
-    my $numbers = shift @ARGV;
-    my $end = shift @ARGV;
+    my ($numbers, $end) = @_;
     my @array;
-    while(--$numbers > 0)
+    while($numbers-- > 0)
     {
     	my $rand_num = int(rand $end);
 		#print $rand_num, " ";

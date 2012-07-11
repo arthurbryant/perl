@@ -8,6 +8,6 @@ use strict;
 require "./pub_functions.pl";
 require "./print.pl";
 
-my @result = &random_num();
+my @result = &random_num(20, 100);
 
 &print_num_array(\@result);
