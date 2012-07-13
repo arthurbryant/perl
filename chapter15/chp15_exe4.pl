@@ -6,3 +6,22 @@ use 5.010;
 use warnings;
 use strict;
 
+sub divisors
+{
+    my $number = shift;
+    my @divisors = ();
+    foreach my $divisor (2..($number/2))
+    {
+        push @divisors, $divisor unless $number % $divisor;
+    }
+    return @divisors;
+}
+chomp(my $input = <>);
+die "Wrong input!" unless $input ~~ /^\d+$/;
+my @result = &divisors($input);
+my @temp = ();
+given(@result)
+{
+    when($_  ~~ @temp) {print "$input is prime.\n"; exit 1;}
+    default {print "@result\n";} 
+}
