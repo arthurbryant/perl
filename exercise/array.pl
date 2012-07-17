@@ -3,23 +3,9 @@
 use strict;
 use warnings;
 
-# generate 100 intergers between 0 and 9999.
-srand(scalar time());
-my $range = 1000;
-my @arr = ();
-my $count = 100;
-print $_ foreach( 1..$count);
-print "\n";
-=pod
-foreach (1..$count)
-{
-    push @arr, int(rand($range));
-}
-=cut
+require "../pub_functions/print.pl";
 
-# sort 100 intergers.
-@arr = sort { $a <=> $b } @arr;
-foreach my $item (@arr)
-{
-    print $item, "\n";
-}
+my @array = qw{1 3 5 7};
+push(@array, 2, 1, 2);
+&print_num_array(\@array);
+

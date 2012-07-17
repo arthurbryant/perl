@@ -5,46 +5,72 @@
 
 use warnings;
 use strict;
-#die "Usage: ./crawler -email xxxx -psw xxx\n" if(@ARGV != 4);
 
 use LWP::UserAgent;
+use HTTP::Cookies;
+use MIME::Base64;
+use URI::Escape;
+use Digest::SHA  qw(sha1_hex);
+
+#die "Usage: ./crawler -email xxxx -psw xxx\n" if(@ARGV < 4);
+my $username = 'mixitestonly@sina.cn';
+my $password = 'beyond';
 my $browser = LWP::UserAgent->new;
-
-#my $url = "http://login.sina.com.cn/sso/login.php?client=ssologin.js";
+$browser->timeout(5);
+$browser->agent('Mozilla/4.0');
+$browser->cookie_jar(HTTP::Cookies->new(file=>'getsina.cookies', autosave=>1));
 my $url = "http://login.sina.com.cn/sso/login.php?client=ssologin.js(v1.3.22)";
-my $username = 'cst.feng@gmail.com';
-#my $encoded_username = sinaSSOEncoder.base64.encode(encodeURIComponent($username));
-my $password = '#fuckyou1';
-#my $encoded_password = sinaSSOEncoder.hex_sha1("" + sinaSSOEncoder.hex_sha1(sinaSSOEncoder.hex_sha1($password)) + sinaSSOController.servertime + sinaSSOController.nonce);
-
-my $response = $browser->post($url, 
+my $encoded_username = encode_base64(uri_escape($username));
+print "username: $encoded_username\n";
+# get servertime and nonce.
+my $servertime; 
+my $nonce;
+my $res = $browser->get("http://login.sina.com.cn/sso/prelogin.php?entry=cnmail&callback=sinaSSOController.preloginCallBack&su=$encoded_username&client=ssologin.js(v1.3.22)",Host=>'login.sina.com.cn',Referer=>'http://mail.sina.com.cn/');
+my $response = $res->as_string();
+if($response =~ /"servertime":(\d+),.*"nonce":"(.{6})"/)
+{
+	$servertime = $1;
+    $nonce = $2; 
+}
+print "sertime: $servertime\nnonce: $nonce\n";
+my $encoded_password = sha1_hex(sha1_hex(sha1_hex(uri_escape($password))) . $servertime . $nonce);
+print "password: $encoded_password\n";
+$response = $browser->post($url, 
     [ 
+		Host => 'login.sina.com.cn',
+		Referer => 'http://mail.sina.com.cn',
         callback => 'parent.sinaSSOController.loginCallBack',
         encoding => 'UTF-8',
         entry => 'freemail',
-#from____
-        gateway => '1',
-        nonce => '4F69KK',
-        prelt => '139',
+		from => '',
+        gateway => 1,
+        nonce => $nonce,
+        prelt => 64,
         pwencode => 'wsse',
         returntype => 'IFRAME',
-        savestate => '0',
-        servertime => '1337312385',
+        savestate => 0,
+        servertime => $servertime,
         service => 'sso',
-        setdomain => '1',
-        sp => '',
-        su => 'Y3N0LmZlbmdAZ21haWwuY29t',
-#sp => "sinaSSOEncoder.hex_sha1('' + sinaSSOEncoder.hex_sha1(sinaSSOEncoder.hex_sha1($password)) + sinaSSOController.servertime + sinaSSOController.nonce)",
-#        su => "sinaSSOEncoder.base64.encode(encodeURIComponent($username))",
-        useticket => '0',
+        setdomain => 1,
+        sp => $encoded_password,
+        su => $encoded_username,
+        useticket => 0,
     ]);
-
 if($response->is_success)
 {
-    print $response->content;
+	print "Code: ", $response->status_line, "\n";
 }
 else
 {
-    print "Failed!";
+	die "Failed to get post's response: $!";	
 }
-
+# Email list page
+my $m_code;
+$res = $browser->get("http://mail.sina.com.cn/");
+if($res->request()->url =~ /http:\/\/(.{2})./)
+{
+	$m_code = $1;
+}
+$res = $browser->get("http://$m_code.mail.sina.com.cn/basic/");
+open FH, "> mail.sina.com.cn" or die "can not create mail.sina.com.cn";
+print FH, $res->content();
