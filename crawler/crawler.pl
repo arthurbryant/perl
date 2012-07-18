@@ -11,18 +11,20 @@ use HTTP::Cookies;
 use MIME::Base64;
 use URI::Escape;
 use Digest::SHA  qw(sha1_hex);
+# Get username and password.
+die "Usage: ./crawler -email xxxx -psw xxx\n" if(@ARGV < 4);
+my $username = $ARGV[1]; #'mixitestonly@sina.cn';
+my $password = $ARGV[3]; #'beyond';
 
-#die "Usage: ./crawler -email xxxx -psw xxx\n" if(@ARGV < 4);
-my $username = 'mixitestonly@sina.cn';
-my $password = 'beyond';
 my $browser = LWP::UserAgent->new;
 $browser->timeout(5);
 $browser->agent('Mozilla/4.0');
-$browser->cookie_jar(HTTP::Cookies->new(file=>'getsina.cookies', autosave=>1));
+$browser->cookie_jar(HTTP::Cookies->new(file => 'getsina.cookies', autosave => 1));
 my $url = "http://login.sina.com.cn/sso/login.php?client=ssologin.js(v1.3.22)";
+# Encode username.  
 my $encoded_username = encode_base64(uri_escape($username));
 print "username: $encoded_username\n";
-# get servertime and nonce.
+# Get servertime and nonce.
 my $servertime; 
 my $nonce;
 my $res = $browser->get("http://login.sina.com.cn/sso/prelogin.php?entry=cnmail&callback=sinaSSOController.preloginCallBack&su=$encoded_username&client=ssologin.js(v1.3.22)",Host=>'login.sina.com.cn',Referer=>'http://mail.sina.com.cn/');
@@ -32,9 +34,10 @@ if($response =~ /"servertime":(\d+),.*"nonce":"(.{6})"/)
 	$servertime = $1;
     $nonce = $2; 
 }
-print "sertime: $servertime\nnonce: $nonce\n";
+# Encode password.  
 my $encoded_password = sha1_hex(sha1_hex(sha1_hex(uri_escape($password))) . $servertime . $nonce);
 print "password: $encoded_password\n";
+print "sertime: $servertime\nnonce: $nonce\n";
 $response = $browser->post($url, 
     [ 
 		Host => 'login.sina.com.cn',
@@ -62,9 +65,10 @@ if($response->is_success)
 }
 else
 {
+	print "Code: ", $response->status_line, "\n";
 	die "Failed to get post's response: $!";	
 }
-# Email list page
+# List email titiles 
 my $m_code;
 $res = $browser->get("http://mail.sina.com.cn/");
 if($res->request()->url =~ /http:\/\/(.{2})./)
@@ -72,5 +76,13 @@ if($res->request()->url =~ /http:\/\/(.{2})./)
 	$m_code = $1;
 }
 $res = $browser->get("http://$m_code.mail.sina.com.cn/basic/");
-open FH, "> mail.sina.com.cn" or die "can not create mail.sina.com.cn";
-print FH, $res->content();
+if($res->is_success())
+{
+	foreach ($res->content)
+	{
+		if(/basic\/readmail\.php\S+\s+title="(.*)">/)
+		{
+			print $1, "\n";
+		}
+	}
+}
