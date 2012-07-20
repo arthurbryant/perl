@@ -5,4 +5,5 @@
 use strict; 
 use warnings;
 
-print localtime();
+print localtime, "\n";
+print gmtime, "\n";

@@ -11,8 +11,9 @@ my %last_name = qw{
 		};
 sub by_name
 {
+	my %names;
 	"\L$a" cmp "\L$b" or
-	$last_name{"\L$a"} cmp $last_name{"\L$b"};
+	$names{"\L$a"} cmp $names{"\L$b"};
 }
 my @names = sort by_name keys %last_name;
 foreach (@names)
