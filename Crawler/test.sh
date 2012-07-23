@@ -1,3 +1,3 @@
 #!/bin/sh
 
-./crawler.pl -email mixitestonly@sina.cn -passwd beyond
+./crawler.pl -email mixitestonly@sina.cn -psw beyond

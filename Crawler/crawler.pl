@@ -74,27 +74,32 @@ else
 }
 # List email titiles 
 my $m_code;
-$res = $browser->get("http://mail.sina.com.cn/");
+my $mail_url = "http://mail.sina.com.cn/";
+$res = $browser->get($mail_url) or die "Can not get $mail_url";
 if($res->request()->url =~ /http:\/\/(.{2})./)
 {
 	$m_code = $1;
 }
-$res = $browser->get("http://$m_code.mail.sina.com.cn/basic/");
-my @titles;
-if($res->is_success())
-{
-	while($res->content =~ m/basic\/readmail\.php\S+\s+title="(.*)">/g)
-	{
-		push @titles, $1;
-	}
-}
+my $real_mail_url = "http://$m_code.mail.sina.com.cn/basic/";
+$res = $browser->get($real_mail_url);
+# store result to file 
 my $store_html = "mail.sina.com.cn";
 open FH, "> $store_html" or die "Can not create $store_html";
 print FH $res->content(); 
+my @titles;
+if($res->is_success())
+{
+	$_ = $res->content;
+	while(m/readmail\.php(.*?)title=\"(.*?)\">/g)
+	{
+		push @titles, $2;
+	}
+}
 print "Titles: @titles\n";
+=pod
 # store titles into mysql.
 my $dbh = connect_db();
 insert_db($dbh, @titles);
 # 
-
 disconnect_db($dbh);
+=cut
