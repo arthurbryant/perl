@@ -96,10 +96,12 @@ if($res->is_success())
 	}
 }
 print "Titles: @titles\n";
-=pod
 # store titles into mysql.
 my $dbh = connect_db();
+=pod
 insert_db($dbh, @titles);
-# 
-disconnect_db($dbh);
 =cut
+# get titles from database. 
+
+disconnect_db($dbh);
+

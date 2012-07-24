@@ -10,7 +10,7 @@ use DBI;
 use Exporter;
 use vars qw(@ISA @EXPORT_OK);
 @ISA = qw(Exporter);
-@EXPORT_OK = qw(connect_db insert_db disconnect_db);
+@EXPORT_OK = qw(connect_db insert_db disconnect_db get_data);
 
 my $dbn = "DBI:mysql:database=crawler_db; host=localhost";
 my $user = "root";
@@ -28,9 +28,26 @@ sub insert_db
 	foreach (@titles)
 	{
 		# undo: check your insert statement.
-		my $rows = $dbh->do("insert into sina_data(title) values('$_')") or die "Insert failed: $!";
+		my $rows = $dbh->do("insert into sina_data(title) values('$_')") or die $DBI::errstr;
 		print $rows, "\n";
 	}
+}
+
+sub get_data 
+{
+	my ($dbh, $statement) = @_;
+	# undo: check statement.
+	my $result = $dbh->prepare($statement) or die $DBI::errstr;
+	$result->execute() or die $DBI::errstr;
+	my $title; 
+	$result->bind_columns(\$title) or die $DBI::errstr;
+	my @rows;
+	while($result->fetch())
+	{
+		print $title, "\n";
+		push @rows, $title;
+	}
+	return @rows;
 }
 
 sub disconnect_db
