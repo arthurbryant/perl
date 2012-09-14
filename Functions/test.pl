@@ -14,6 +14,9 @@ use Functions::Number qw{random_num};
 use Functions::Print qw(print_num_array);
 
 
-my @result = random_num(20, 100);
+my @result = random_num(5, 10);
 
 print_num_array(\@result);
+if(! undef) {
+    print "undef pass!\n";
+}

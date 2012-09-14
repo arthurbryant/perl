@@ -5,7 +5,11 @@
 use warnings;
 use strict;
 
-use Test::Simple tests => 1;
+use Singleton;
 
-ok(1+1 == 2, "very good");
-ng(1+1 == 3);
+sub main
+{
+    return Singleton->get_instance();
+}
+
+&main;

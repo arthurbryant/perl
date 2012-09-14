@@ -7,6 +7,7 @@ use strict;
 
 use Employee;
 
-my $obj = Employee->new("arthur", 27);
-
-
+my $obj = Employee->create("arthur", 27);
+$obj->set_salary(200);
+my $test = $obj->get_salary();
+print $test, "\n";

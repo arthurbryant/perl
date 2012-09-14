@@ -22,7 +22,7 @@ sub random_num
     while($numbers-- > 0)
     {
     	my $rand_num = int(rand $end);
-		#print $rand_num, " ";
+		print $rand_num, "\n";
     	push @array, $rand_num;
     }
 
