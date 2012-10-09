@@ -9,11 +9,6 @@ my ($arr) = @ARGV;
 print "\$arr = $arr\n";
 print "$#ARGV\n";
 die "Need at least one parameter" if (@ARGV < 1);
-my $first = shift @ARGV;
-unless($first =~/\d+/)
-{
-    exit;
-}
 while(@ARGV)
 {
     my $item = shift @ARGV;
