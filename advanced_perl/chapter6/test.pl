@@ -1,26 +1,35 @@
 #!/usr/bin/perl
 #  
-# Author:zhangfeng  cst.feng@gmail.com  2012-07-11
+# Author:zhangfeng  cst.feng@gmail.com  2012-07-17
 
 use warnings;
 use strict;
 
-use BankAccount('deposit');
-use Global;
+#use Data::Dumper;
+use YAML;
 
-require "../../pub_functions/print.pl";
+while(<>);
 
-print_str_array(\@ARGV);
-BankAccount::deposit(100);
-#my $sum = $BankAccout::total;
-#print $sum, "\n";
-$_ = "main";
-print $_, "\n";
-Global::change_argv();
-print $_, "\n";
-#print "@ARGV";
-#print_str_array(\@ARGV);
-foreach my $name (keys %main::)
-{
-	print $name, "\n";
-}
+my @gilligan_info =
+(
+	name => 'gilligan',
+	hat => 'White',
+	shirt => 'Red',
+	position => 'First Mate',
+);
+
+#print Dumper(@gilligan_info);
+print Dump(@gilligan_info);
+
+my @input_numbers = (1, 2, 4, 8, 16, 32, 64);
+my @indices = grep {
+	my $number = $input_numbers[$_];
+	my $sum;
+	$sum += $_ for split //, $number; 
+	$sum % 2;
+} 0..$#input_numbers;
+print Dump(@indices);
+print "\n";
+my @result = @input_numbers[@indices];
+print Dump(@result);
+

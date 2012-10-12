@@ -7,7 +7,7 @@ use strict;
 
 if($#ARGV != 0)
 {
-   print "Usage: change_name.pl chapter_num\n";
+   print "Usage: $0 chapter_num\n";
    exit;
 }
 my $chp_num = shift @ARGV;

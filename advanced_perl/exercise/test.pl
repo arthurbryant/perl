@@ -5,7 +5,22 @@
 use warnings;
 use strict;
 
-use Test::Simple tests => 1;
+use BankAccount('deposit');
+use Global;
 
-ok(1+1 == 2, "very good");
-ng(1+1 == 3);
+require "../../pub_functions/print.pl";
+
+print_str_array(\@ARGV);
+BankAccount::deposit(100);
+#my $sum = $BankAccout::total;
+#print $sum, "\n";
+$_ = "main";
+print $_, "\n";
+Global::change_argv();
+print $_, "\n";
+#print "@ARGV";
+#print_str_array(\@ARGV);
+foreach my $name (keys %main::)
+{
+	print $name, "\n";
+}

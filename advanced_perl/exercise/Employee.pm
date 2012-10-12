@@ -24,11 +24,4 @@ sub set_salary
 	return $new_salary;
 }
 
-sub get_salary
-{
-    shift;
-    return $self->{salary};
-}
-
-
 1;
