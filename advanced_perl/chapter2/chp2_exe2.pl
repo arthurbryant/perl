@@ -6,19 +6,19 @@ use warnings;
 use strict;
 
 print "please input pattern\n";
-die "Can not get pattern\n" unless defined(my $pattern = <>);
-die "Can not get pattern\n" if $pattern eq "\n";
-chomp $pattern;
-print $pattern;
-print "please input filename\n";
-chomp(my $file = <>);
-while($file)
-{
-	print "please input filename\n";
-	die "Can not get filename\n" unless defined(my $pattern = <>);
-	die "Can not get filename\n" if $pattern eq "\n";
-	eval
-	{
-		print $file if /$pattern/;
-	}
+chomp(my $pattern = <>);
+die "Can not get pattern\n" unless defined($pattern) && length $pattern;
+print $pattern, "\n";
+
+print "please input directory\n";
+chomp(my $dir = <>);
+die "Can not get directory\n" unless defined($dir) && length $dir;
+print $dir, "\n\n";
+chdir $dir or die"Can not change to $dir";
+eval {
+	my @result = grep { /$pattern/ } glob("* .*");
+	print map {"$_\n"} @result;
+};
+if($@) {
+	print "Error: $@";
 }
