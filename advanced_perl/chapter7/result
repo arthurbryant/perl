@@ -1,79 +1,309 @@
-skipper.crew.hut => 481951
-    fileserver.copyroom.hut => 19871
-    gilligan.crew.hut => 29142
-    thurston.howell.hut => 41726
-    lovey.howell.hut => 43427
-    maryann.girl.hut => 71880
-    ginger.girl.hut => 77621
-    laser3.copyroom.hut => 89505
-    professor.hut => 108779
-    sum_bytes => 481951
-thurston.howell.hut => 619077
-    fileserver.copyroom.hut => 40988
-    gilligan.crew.hut => 56658
-    ginger.girl.hut => 58580
-    skipper.crew.hut => 66538
-    professor.hut => 78576
-    lovey.howell.hut => 82972
-    maryann.girl.hut => 105137
-    laser3.copyroom.hut => 129628
-    sum_bytes => 619077
-fileserver.copyroom.hut => 770174
-    gilligan.crew.hut => 85129
-    thurston.howell.hut => 86084
-    skipper.crew.hut => 88261
-    maryann.girl.hut => 99261
-    ginger.girl.hut => 103478
-    professor.hut => 146975
-    lovey.howell.hut => 160986
-    sum_bytes => 770174
-professor.hut => 821931
-    fileserver.copyroom.hut => 53352
-    gilligan.crew.hut => 82825
-    skipper.crew.hut => 86642
-    thurston.howell.hut => 94363
-    maryann.girl.hut => 94786
-    ginger.girl.hut => 113685
-    lovey.howell.hut => 123396
-    laser3.copyroom.hut => 172882
-    sum_bytes => 821931
-maryann.girl.hut => 846806
-    gilligan.crew.hut => 40846
-    fileserver.copyroom.hut => 63807
-    skipper.crew.hut => 75155
-    professor.hut => 109526
-    thurston.howell.hut => 123456
-    ginger.girl.hut => 126902
-    lovey.howell.hut => 145271
-    laser3.copyroom.hut => 161843
-    sum_bytes => 846806
-ginger.girl.hut => 968495
-    gilligan.crew.hut => 65727
-    fileserver.copyroom.hut => 79551
-    skipper.crew.hut => 103592
-    thurston.howell.hut => 105940
-    professor.hut => 110300
-    maryann.girl.hut => 152634
-    lovey.howell.hut => 170948
-    laser3.copyroom.hut => 179803
-    sum_bytes => 968495
-gilligan.crew.hut => 983860
-    ginger.girl.hut => 83207
-    fileserver.copyroom.hut => 90369
-    thurston.howell.hut => 97398
-    professor.hut => 101219
-    lovey.howell.hut => 107152
-    skipper.crew.hut => 118827
-    maryann.girl.hut => 145361
-    laser3.copyroom.hut => 240327
-    sum_bytes => 983860
-lovey.howell.hut => 1139833
-    gilligan.crew.hut => 78666
-    fileserver.copyroom.hut => 98926
-    skipper.crew.hut => 119766
-    thurston.howell.hut => 141790
-    maryann.girl.hut => 155080
-    ginger.girl.hut => 158084
-    professor.hut => 175065
-    laser3.copyroom.hut => 212456
-    sum_bytes => 1139833
+. found
+./change_filenames.pl found
+./chp7_exe2.pl found
+./model.pl found
+./undo found
+./.test.pl.swp found
+./chp7_exe1.pl found
+./filenames found
+./result found
+./.chp3_exe2.pl.swp found
+./test.pl found
+my tmp:
+1: /tmp
+2: /tmp/.Test-unix
+3: /tmp/.X11-unix
+4: /tmp/.font-unix
+5: /tmp/vM6GE90
+6: /tmp/.ICE-unix
+7: /tmp/.XIM-unix
+my run:
+1: /run
+2: /run/sshd.pid
+3: /run/smbd.pid
+4: /run/messagebus.pid
+5: /run/acpid.pid
+6: /run/acpid.socket
+7: /run/syslogd.pid
+8: /run/cron.reboot
+9: /run/utmp
+10: /run/gearmand
+11: /run/dbus
+12: /run/dbus/system_bus_socket
+13: /run/user
+14: /run/user/bkapps
+15: /run/svnserve
+16: /run/screen
+17: /run/saslauthd
+18: /run/samba
+19: /run/sepermit
+20: /run/faillock
+21: /run/console
+22: /run/net-snmp
+23: /run/setrans
+24: /run/netreport
+25: /run/httpd
+26: /run/cups
+27: /run/cups/certs
+28: /run/log
+29: /run/log/journal
+30: /run/log/journal/850971fec0170aa398e6bff38184df62
+31: /run/log/journal/850971fec0170aa398e6bff38184df62/system.journal
+32: /run/mount
+33: /run/mount/utab
+34: /run/systemd
+35: /run/systemd/private
+36: /run/systemd/notify
+37: /run/systemd/shutdownd
+38: /run/systemd/generator
+39: /run/systemd/generator/getty.target.wants
+40: /run/systemd/generator/getty.target.wants/serial-getty@ttyS0.service
+41: /run/systemd/shutdown
+42: /run/systemd/users
+43: /run/systemd/users/1001
+44: /run/systemd/users/1002
+45: /run/systemd/sessions
+46: /run/systemd/sessions/c3045
+47: /run/systemd/sessions/c3045.ref
+48: /run/systemd/sessions/c2980
+49: /run/systemd/sessions/c2980.ref
+50: /run/systemd/seats
+51: /run/systemd/seats/seat0
+52: /run/systemd/journal
+53: /run/systemd/journal/socket
+54: /run/systemd/journal/stdout
+55: /run/systemd/journal/syslog
+56: /run/systemd/ask-password
+57: /run/systemd/system
+58: /run/plymouth
+59: /run/mdadm
+60: /run/udev
+61: /run/udev/queue.bin
+62: /run/udev/control
+63: /run/udev/watch
+64: /run/udev/watch/16
+65: /run/udev/watch/14
+66: /run/udev/watch/13
+67: /run/udev/watch/11
+68: /run/udev/watch/10
+69: /run/udev/watch/9
+70: /run/udev/watch/8
+71: /run/udev/watch/7
+72: /run/udev/watch/6
+73: /run/udev/watch/5
+74: /run/udev/watch/4
+75: /run/udev/watch/3
+76: /run/udev/watch/2
+77: /run/udev/watch/1
+78: /run/udev/tags
+79: /run/udev/tags/seat
+80: /run/udev/tags/seat/+input:input1
+81: /run/udev/tags/seat/+input:input2
+82: /run/udev/tags/seat/+input:input3
+83: /run/udev/tags/seat/+input:input0
+84: /run/udev/tags/seat/c189:0
+85: /run/udev/tags/systemd
+86: /run/udev/tags/systemd/n2
+87: /run/udev/tags/systemd/b252:1
+88: /run/udev/tags/systemd/b252:2
+89: /run/udev/tags/systemd/b252:17
+90: /run/udev/tags/systemd/b252:3
+91: /run/udev/tags/systemd/b252:0
+92: /run/udev/tags/systemd/b252:16
+93: /run/udev/tags/systemd/c4:64
+94: /run/udev/tags/systemd/c4:67
+95: /run/udev/tags/systemd/c4:66
+96: /run/udev/tags/systemd/c4:65
+97: /run/udev/tags/systemd/+module:configfs
+98: /run/udev/links
+99: /run/udev/links/disk\x2fby-path\x2fpci-0000:00:04.0-virtio-pci-virtio1-part1
+100: /run/udev/links/disk\x2fby-path\x2fpci-0000:00:04.0-virtio-pci-virtio1-part1/b252:1
+101: /run/udev/links/disk\x2fby-partuuid\x2f6b01d475-85fb-43be-b908-df002434a86e
+102: /run/udev/links/disk\x2fby-partuuid\x2f6b01d475-85fb-43be-b908-df002434a86e/b252:1
+103: /run/udev/links/disk\x2fby-uuid\x2fff7af5e1-9dda-4b3e-95b9-834184d07cd3
+104: /run/udev/links/disk\x2fby-uuid\x2fff7af5e1-9dda-4b3e-95b9-834184d07cd3/b252:2
+105: /run/udev/links/disk\x2fby-path\x2fpci-0000:00:04.0-virtio-pci-virtio1-part2
+106: /run/udev/links/disk\x2fby-path\x2fpci-0000:00:04.0-virtio-pci-virtio1-part2/b252:2
+107: /run/udev/links/disk\x2fby-partuuid\x2ffed010d2-da22-4db2-ab36-0fb32d5e91e0
+108: /run/udev/links/disk\x2fby-partuuid\x2ffed010d2-da22-4db2-ab36-0fb32d5e91e0/b252:2
+109: /run/udev/links/disk\x2fby-uuid\x2fe66bdef0-aab3-45d9-ae77-6af6f04f01da
+110: /run/udev/links/disk\x2fby-uuid\x2fe66bdef0-aab3-45d9-ae77-6af6f04f01da/b252:17
+111: /run/udev/links/disk\x2fby-path\x2fpci-0000:00:05.0-virtio-pci-virtio2-part1
+112: /run/udev/links/disk\x2fby-path\x2fpci-0000:00:05.0-virtio-pci-virtio2-part1/b252:17
+113: /run/udev/links/disk\x2fby-partuuid\x2f5aab0f1e-572b-4ec8-8402-610a2af4da6c
+114: /run/udev/links/disk\x2fby-partuuid\x2f5aab0f1e-572b-4ec8-8402-610a2af4da6c/b252:17
+115: /run/udev/links/disk\x2fby-uuid\x2f943ad6e2-6708-4382-b3f3-ab28e8929700
+116: /run/udev/links/disk\x2fby-uuid\x2f943ad6e2-6708-4382-b3f3-ab28e8929700/b252:3
+117: /run/udev/links/disk\x2fby-path\x2fpci-0000:00:04.0-virtio-pci-virtio1-part3
+118: /run/udev/links/disk\x2fby-path\x2fpci-0000:00:04.0-virtio-pci-virtio1-part3/b252:3
+119: /run/udev/links/disk\x2fby-partuuid\x2fb68aa868-7435-4bb6-be07-a40b787cd926
+120: /run/udev/links/disk\x2fby-partuuid\x2fb68aa868-7435-4bb6-be07-a40b787cd926/b252:3
+121: /run/udev/links/disk\x2fby-path\x2fpci-0000:00:04.0-virtio-pci-virtio1
+122: /run/udev/links/disk\x2fby-path\x2fpci-0000:00:04.0-virtio-pci-virtio1/b252:0
+123: /run/udev/links/disk\x2fby-path\x2fpci-0000:00:05.0-virtio-pci-virtio2
+124: /run/udev/links/disk\x2fby-path\x2fpci-0000:00:05.0-virtio-pci-virtio2/b252:16
+125: /run/udev/links/input\x2fby-path\x2fpci-0000:00:01.2-usb-0:1:1.0-event-mouse
+126: /run/udev/links/input\x2fby-path\x2fpci-0000:00:01.2-usb-0:1:1.0-event-mouse/c13:67
+127: /run/udev/links/input\x2fby-id\x2fusb-QEMU_1.0_QEMU_USB_Tablet_42-event-mouse
+128: /run/udev/links/input\x2fby-id\x2fusb-QEMU_1.0_QEMU_USB_Tablet_42-event-mouse/c13:67
+129: /run/udev/links/input\x2fby-path\x2fpci-0000:00:01.2-usb-0:1:1.0-mouse
+130: /run/udev/links/input\x2fby-path\x2fpci-0000:00:01.2-usb-0:1:1.0-mouse/c13:33
+131: /run/udev/links/input\x2fby-id\x2fusb-QEMU_1.0_QEMU_USB_Tablet_42-mouse
+132: /run/udev/links/input\x2fby-id\x2fusb-QEMU_1.0_QEMU_USB_Tablet_42-mouse/c13:33
+133: /run/udev/links/input\x2fby-path\x2fplatform-i8042-serio-0-event-kbd
+134: /run/udev/links/input\x2fby-path\x2fplatform-i8042-serio-0-event-kbd/c13:65
+135: /run/udev/links/rtc
+136: /run/udev/links/rtc/c254:0
+137: /run/udev/links/input\x2fby-path\x2fplatform-i8042-serio-1-event-mouse
+138: /run/udev/links/input\x2fby-path\x2fplatform-i8042-serio-1-event-mouse/c13:66
+139: /run/udev/links/input\x2fby-path\x2fplatform-i8042-serio-1-mouse
+140: /run/udev/links/input\x2fby-path\x2fplatform-i8042-serio-1-mouse/c13:32
+141: /run/udev/data
+142: /run/udev/data/c7:134
+143: /run/udev/data/c7:133
+144: /run/udev/data/c7:4
+145: /run/udev/data/c7:5
+146: /run/udev/data/c7:6
+147: /run/udev/data/c7:132
+148: /run/udev/data/c7:131
+149: /run/udev/data/c7:3
+150: /run/udev/data/c7:130
+151: /run/udev/data/c7:2
+152: /run/udev/data/n2
+153: /run/udev/data/b252:17
+154: /run/udev/data/n1
+155: /run/udev/data/b252:1
+156: /run/udev/data/c7:1
+157: /run/udev/data/c7:129
+158: /run/udev/data/c7:128
+159: /run/udev/data/c7:0
+160: /run/udev/data/c4:9
+161: /run/udev/data/c4:63
+162: /run/udev/data/c4:8
+163: /run/udev/data/c4:7
+164: /run/udev/data/c4:62
+165: /run/udev/data/c4:59
+166: /run/udev/data/c4:61
+167: /run/udev/data/c4:60
+168: /run/udev/data/c4:6
+169: /run/udev/data/c4:54
+170: /run/udev/data/c4:58
+171: /run/udev/data/c4:57
+172: /run/udev/data/c4:56
+173: /run/udev/data/c4:55
+174: /run/udev/data/c4:53
+175: /run/udev/data/c4:52
+176: /run/udev/data/c4:50
+177: /run/udev/data/c4:51
+178: /run/udev/data/c4:5
+179: /run/udev/data/c4:48
+180: /run/udev/data/c4:49
+181: /run/udev/data/c4:47
+182: /run/udev/data/c4:46
+183: /run/udev/data/c4:45
+184: /run/udev/data/c4:44
+185: /run/udev/data/c4:43
+186: /run/udev/data/c4:42
+187: /run/udev/data/c4:41
+188: /run/udev/data/c4:40
+189: /run/udev/data/c4:4
+190: /run/udev/data/c4:39
+191: /run/udev/data/c4:38
+192: /run/udev/data/c4:37
+193: /run/udev/data/c4:36
+194: /run/udev/data/c4:35
+195: /run/udev/data/c4:34
+196: /run/udev/data/c4:33
+197: /run/udev/data/c4:32
+198: /run/udev/data/c4:31
+199: /run/udev/data/c4:30
+200: /run/udev/data/c4:3
+201: /run/udev/data/b252:2
+202: /run/udev/data/c4:29
+203: /run/udev/data/c4:28
+204: /run/udev/data/c4:27
+205: /run/udev/data/c4:25
+206: /run/udev/data/c4:26
+207: /run/udev/data/c4:24
+208: /run/udev/data/c4:23
+209: /run/udev/data/c4:22
+210: /run/udev/data/c4:21
+211: /run/udev/data/c4:20
+212: /run/udev/data/c4:2
+213: /run/udev/data/c4:19
+214: /run/udev/data/c4:18
+215: /run/udev/data/c4:17
+216: /run/udev/data/c4:16
+217: /run/udev/data/c4:15
+218: /run/udev/data/c4:14
+219: /run/udev/data/c4:13
+220: /run/udev/data/c4:11
+221: /run/udev/data/c4:12
+222: /run/udev/data/c4:10
+223: /run/udev/data/c4:1
+224: /run/udev/data/c4:0
+225: /run/udev/data/c5:0
+226: /run/udev/data/c5:1
+227: /run/udev/data/c5:2
+228: /run/udev/data/c162:0
+229: /run/udev/data/c202:2
+230: /run/udev/data/c202:1
+231: /run/udev/data/c10:63
+232: /run/udev/data/c202:0
+233: /run/udev/data/c10:144
+234: /run/udev/data/c10:227
+235: /run/udev/data/c10:237
+236: /run/udev/data/c10:236
+237: /run/udev/data/c10:228
+238: /run/udev/data/c10:235
+239: /run/udev/data/c1:9
+240: /run/udev/data/c1:5
+241: /run/udev/data/c1:8
+242: /run/udev/data/c1:4
+243: /run/udev/data/c1:12
+244: /run/udev/data/c1:3
+245: /run/udev/data/c1:1
+246: /run/udev/data/c1:11
+247: /run/udev/data/c1:7
+248: /run/udev/data/c13:63
+249: /run/udev/data/c203:2
+250: /run/udev/data/c203:1
+251: /run/udev/data/b7:7
+252: /run/udev/data/c203:0
+253: /run/udev/data/b7:6
+254: /run/udev/data/b7:4
+255: /run/udev/data/b7:5
+256: /run/udev/data/b7:3
+257: /run/udev/data/b7:2
+258: /run/udev/data/b7:1
+259: /run/udev/data/b7:0
+260: /run/udev/data/b252:3
+261: /run/udev/data/b252:0
+262: /run/udev/data/b252:16
+263: /run/udev/data/c13:67
+264: /run/udev/data/c13:33
+265: /run/udev/data/c13:65
+266: /run/udev/data/c4:64
+267: /run/udev/data/+input:input1
+268: /run/udev/data/c254:0
+269: /run/udev/data/c13:66
+270: /run/udev/data/c13:32
+271: /run/udev/data/c4:67
+272: /run/udev/data/+input:input2
+273: /run/udev/data/c4:66
+274: /run/udev/data/+serio:serio0
+275: /run/udev/data/c4:65
+276: /run/udev/data/c13:64
+277: /run/udev/data/c252:0
+278: /run/udev/data/+input:input3
+279: /run/udev/data/+input:input0
+280: /run/udev/data/c189:1
+281: /run/udev/data/c189:0
+282: /run/udev/data/+module:configfs
+283: /run/udev/rules.d
+284: /run/lock
+285: /run/lock/lockdev
+286: /run/lock/subsys
+287: /run/lock/subsys/network
+288: /run/initramfs
+289: /run/initramfs/root-fsck

@@ -1,7 +1,8 @@
 #!/usr/bin/perl
-#  
-# Author:zhangfeng  feng.zhang@mixi.co.jp  2012-10-15
+#
+# Author: feng.zhang   Email: feng.zhang@mixi.co.jp  2012-10-16
+#
 
-use warnings;
 use strict;
+use warnings;
 

@@ -14,3 +14,14 @@ find(
 	qw(.)
 );
 
+sub create_find_callback_counts
+{
+	my $count = 0;
+	return sub {print ++$count, ": $File::Find::name\n"};
+}
+my $callback1 = create_find_callback_counts();
+my $callback2 = create_find_callback_counts();
+print "my tmp:\n";
+find($callback1, '/tmp/');
+print "my run:\n";
+find($callback2, '/run/');
