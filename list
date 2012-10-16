@@ -1,0 +1,19 @@
+#!/bin/sh
+git -rm     advanced_perl/chapter6/BankAccount.pm
+git -rm     advanced_perl/chapter6/Employee.pm
+git -rm     advanced_perl/chapter6/Global.pm
+git -rm     advanced_perl/chapter6/acookies.lwp
+git -rm     advanced_perl/chapter6/crawl.pl
+git -rm     advanced_perl/chapter6/sina.com
+git -rm     advanced_perl/chapter6/text
+git -rm     advanced_perl/chapter6/use.pl
+git -rm     advanced_perl/chapter7/Boss.pm
+git -rm     advanced_perl/chapter7/Boss.pm~
+git -rm     advanced_perl/chapter7/Employee.pm
+git -rm     advanced_perl/chapter7/Employee.pm~
+git -rm     advanced_perl/chapter7/acookies.lwp
+git -rm     advanced_perl/chapter7/crawl.pl
+git -rm     advanced_perl/chapter7/sina.com
+git -rm     advanced_perl/chapter7/test.pl~
+git -rm     advanced_perl/chapter7/text
+git -rm     advanced_perl/chapter7/use.pl
