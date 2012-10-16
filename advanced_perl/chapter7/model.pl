@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 #  
-# Author:zhangfeng  cst.feng@gmail.com  2012-07-17
+# Author:zhangfeng  feng.zhang@mixi.co.jp  2012-10-15
 
 use warnings;
 use strict;

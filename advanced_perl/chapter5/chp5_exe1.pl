@@ -5,16 +5,27 @@
 use warnings;
 use strict;
 
-my $passage_1 = {
+my $passenger_1 = {
 	name			=> 	'Ginger',
 	age				=> 	20,
 	occupation=> 	'Movie Star',
 	real_age	=> 	35,
 	hat				=> 	undef,
 };
-my $passage_2 = {
+my $passenger_2 = {
 	name			=> 	'Mary Ann',
 	age				=> 	19,
 	hat				=> 	'honnet',
 	favourite_food 	=>	'corn',
 };
+
+my @passengers = ($passenger_1, $passenger_2 );
+
+# test code
+foreach my $passenger (@passengers)
+{
+	while (my ($k, $v) = each %$passenger)
+	{
+		print $k, " => ", $v, "\n";
+	}
+}

@@ -1,34 +1,31 @@
 #!/usr/bin/perl
 #  
-# Author:zhangfeng  cst.feng@gmail.com  2012-07-17
+# Author:zhangfeng  feng.zhang@mixi.co.jp  2012-10-11
 
 use warnings;
 use strict;
 
-use Data::Dumper;
+my %passenger_1 = (
+	name			=> 	'Ginger',
+	age				=> 	20,
+	occupation=> 	'Movie Star',
+	real_age	=> 	35,
+	hat				=> 	undef,
+);
+my %passenger_2 = (
+	name			=> 	'Mary Ann',
+	age				=> 	19,
+	hat				=> 	'honnet',
+	favourite_food 	=>	'corn',
+);
 
-my %total_bytes;
+my @passengers = (\%passenger_1, \%passenger_2 );
 
-my $sum_bytes = "sum_bytes";
-
-while(<>)
+# test code
+foreach my $passenger (@passengers)
 {
-	next if(/^#.*/);
-	my ($source, $destination, $bytes) = split;
-	$total_bytes{$source}{$destination} += $bytes;
-	$total_bytes{$source}{$sum_bytes} += $bytes;
-}
-
-print Dumper(%total_bytes);
-
-# sort by source and destination.
-foreach my $source (sort { $total_bytes{$a}{$sum_bytes} <=> $total_bytes{$b}{$sum_bytes} } keys %total_bytes)
-{
-	print $source;
-	foreach my $des (sort { $total_bytes{$source}{$a} <=> $total_bytes{$source}{$b}} keys %total_bytes{$source})
+	while (my ($k, $v) = each %$passenger)
 	{
-		print $total_bytes{$source}{$des}, "\n";
+		print $k, " => ", $v, "\n";
 	}
-	#print Dumper($source);
-	print $total_bytes{$source}{$sum_bytes}, "\n";
 }
