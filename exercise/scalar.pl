@@ -1,15 +1,5 @@
 #!/usr/bin/perl
 
-=pod
-my @array1 = qw(one two);
-my @array2 = qw(three four five);
-
-# implicit scalar context (caused by the + operator)
-print @array1 + @array2, "\n";
-#
-# # explicit scalar context
-print scalar @array1 + scalar @array2, "\n";
-=cut
 my ($one, $two, $three) = (1, 2, 10);
 print scalar ($one, $two, $three), "\n";
 my @more = ((1, 2, 40), (1));
@@ -44,6 +34,3 @@ my @time = localtime();
 print "@time", "\n";
 
 print scalar localtime(), "\n";
-
-my @list = (1, 'hello', 1.3);
-print "@list", "\n";

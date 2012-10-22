@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 #  
-# Author:zhangfeng  cst.feng@gmail.com  2012-10-10
+# Author: zhangfeng  cst.feng@gmail.com  2012-10-10
 
 use warnings;
 use strict;
@@ -16,6 +16,8 @@ while (my $file = <>)
 	my $path = " " x 4 . File::Spec->catfile($cur_dir, $file) . "\n";
 	push @result, $path;
 }
+print map {$_;} @result; 
+=pod
 foreach my $item (@result)
 {
 	print $item;
