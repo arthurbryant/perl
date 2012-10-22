@@ -10,6 +10,7 @@ use File::Spec;
 
 my $cur_dir = Cwd::cwd();
 my @result;
+# inputfile "filename"
 while (my $file = <>)
 {
 	chomp $file;
@@ -17,8 +18,3 @@ while (my $file = <>)
 	push @result, $path;
 }
 print map {$_;} @result; 
-=pod
-foreach my $item (@result)
-{
-	print $item;
-}

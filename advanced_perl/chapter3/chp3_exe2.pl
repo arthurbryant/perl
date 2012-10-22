@@ -5,5 +5,11 @@
 use warnings;
 use strict;
 
-use lib '/home/bkapps/perl5/lib/perl5/lib/lib64/site_perl/auto';
 use Business::ISBN;
+use Data::Dumper;
+
+my $isbn_no = '4873113059';
+my $isbn = Business::ISBN->new($isbn_no);
+
+print Dumper($isbn->group);
+print Dumper("Country code: " .  $isbn->group_code, "Publisher code: ". $isbn->publisher_code);
