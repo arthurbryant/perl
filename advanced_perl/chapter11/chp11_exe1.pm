@@ -15,13 +15,11 @@ use warnings;
 }
 {
 	package Cow;
-	#use vars qw(@ISA);
-	#@ISA = qw(Animal);
 	our @ISA = qw(Animal);
 	sub sound { "moooo" }
 }
 {
-	package Hores;
+	package Horse;
 	our @ISA = qw(Animal);
 	sub sound { "neigh" };
 }
@@ -40,8 +38,12 @@ use warnings;
 		print "[but you can barely hear it!]\n";
 	}
 }
-
-Animal::speak('Cow');
-# Q: can do below
-#Animal->speak('Cow');
-Animal::speak('Mouse');
+print "Please input Cow | Horse | Sheep | Mouse\n";
+while(chomp(my $input = <stdin>)) {
+	my @animals = split(/ /, $input);
+	foreach my $animal (@animals) {
+		if ($animal  =~ /[Cow|Horse|Sheep|Mouse]/) {
+			$animal->speak('$animal');
+		}
+	}
+}
