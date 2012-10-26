@@ -23,7 +23,8 @@ use warnings;
 	our @ISA = qw(LivingCreature);
 	sub speak {
 		my $class = shift;
-		print "a $class goes ", $class->sound, "\n";
+		die "Animal can not talk" if (@_);
+		$class->SUPER::speak;
 	}
 }
 {

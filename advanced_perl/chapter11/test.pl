@@ -6,3 +6,7 @@
 use strict;
 use warnings;
 
+my $old_file = "chp10_exe_1.pl";
+print $1, "\n" if($old_file =~ /chp\d+(_exe\d+\.p[l|m])/);
+print $1, "\n" if($old_file =~ /chp\d+(_exe\d+\.[pl|pm])/);
+

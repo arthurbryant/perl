@@ -14,11 +14,11 @@ use vars qw(@day @month);
 
 sub day_change {
 	my $index = shift;
-	return undef unless ($index =~ /[0-6]/);
+	return '' unless ($index =~ /[0-6]/);
 	return $day[$index]; 
 }
 sub month_change {
 	my $index = shift;
-	return undef unless ($index =~ /[0-9]|10|11]/);
+	return '' unless ($index =~ /[0-9]|10|11]/);
 	return $month[$index];
 }
