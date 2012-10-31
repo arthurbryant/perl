@@ -8,7 +8,6 @@ use warnings;
 
 {
 	package Animal;
-	use File::Temp qw(tempfile);
 
 	our %REG;	
 	sub speak {
@@ -19,9 +18,6 @@ use warnings;
 		my $class = shift;
 		my $name = shift;
 		my $self = { Name => $name, Color => $class->default_color };
-		my ($fh, $filename) = tempfile();
-		$self->{Temp_fh} = $fh;
-		$self->{Temp_filename} = $filename;
 		bless $self, $class;
 		$REG{$self} = $self;
 	}
@@ -56,11 +52,6 @@ use warnings;
 	}
 	sub DESTROY {
 		my $self = shift;
-		my $fh = $self->{Temp_fh};
-		print "destory temp_filehandler ", $self->{Temp_fh}, "\n";
-		close $fh;
-		print "destory tempfile ", $self->{Temp_filename}, "\n";
-		unlink $self->{Temp_filename};
 		print '[', "$self->{Name}",  " has died].\n";
 	}
 }
@@ -77,11 +68,13 @@ use warnings;
 {
 	package RaceHorse;
 	our @ISA = qw(Horse);
-	our %DBM;
+	dbmopen(our %DBM, "data", 0666) or die "Can not access dbm: $@";
+	foreach (keys %DBM) {
+		print $DBM{$_}, "\n";
+	}
 	sub named {
 		my $self = shift->SUPER::named(@_);
-		$DBM->{$self->{Name}} = map ("$self->{$_} " for qw(wins, places)) || '0 0 0 0';
-		$self->{$_} = 0 for qw(wins places shows losses);
+		@$self{qw(wins places shows losses)} = split ' ', ($DBM{$self->{Name}} || '0 0 0 0');
 		$self;
 	}
 	sub win { shift->{wins}++; }
@@ -91,9 +84,15 @@ use warnings;
 		my $self = shift;
 		join ', ', map "$self->{$_} $_", qw(wins places shows losses);
 	}
+	sub DESTROY {
+		my $self = shift;
+		$DBM{$self->{Name}} = "@$self{qw(wins places shows losses)}";
+		$self->SUPER::DESTROY;
+	}
 }
+
 print "Start of program!\n";
-my @Horses = map Horse->named($_), qw(h1 h2);
-my $rh = RaceHorse->named("racehorse");
-print "Seen: \n", map("$_\n", Animal->registered);
+my $runner = RaceHorse->named("rh");
+$runner->win;
+print $runner->name, " has standins ", $runner->standings, ".\n";
 print "End program.\n";
