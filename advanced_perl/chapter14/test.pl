@@ -6,21 +6,25 @@
 use strict;
 use warnings;
 
-=pod
 {
 	package Test;
+	use Carp;
 
 	sub AUTOLOAD {
-		if()		
+		our $AUTOLOAD;
+		(my $method = $AUTOLOAD) =~s/.*:://s;
+		if($method eq 'eat') {
+			eval q {
+				sub eat {
+					print "eat in AUTOLOAD!\n";
+				}	
+			};	
+			die $@ if($@);
+			goto &eat;
+		}
+		else {
+			croak "$_[0] does not know method $method\n";
+		}
 	}
 }
-=cut
-my $autoload = "Test::age";
-my @elements = qw(color age weight height);
-if($autoload =~ /::(\w+)$/ and grep $1 eq $_, @elements) {
-	my $field = ucfirst $1;
-	print $_, "\n";
-}
-else {
-	print "failed\n";
-}
+Test->eat;

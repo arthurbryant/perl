@@ -35,8 +35,11 @@ use warnings;
 		}
 		croak "$_[0] does not understand $method.";
 	}
+	sub UNIVERSAL::debug {
+		print scalar localtime, "\n";
+	}
 }
 print MyDate->day, "\n";
 print MyDate->month, "\n";
 print MyDate->year, "\n";
-print MyDate->age, "\n";
+MyDate->debug;
