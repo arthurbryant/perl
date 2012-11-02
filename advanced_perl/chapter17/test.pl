@@ -4,7 +4,9 @@
 
 use strict;
 use warnings;
+use My::List::Util;
 
+=jpod
 use Test::More tests => 9;
 
 ok(1, '1 is true');
@@ -18,3 +20,8 @@ is(sqrt(100), 10, "is 10");
 is(sqrt(0.25), 0.5, "is 0.5");
 my $pro = sqrt(7)*sqrt(7);
 ok($pro >= 6.999 && $pro <= 7.001);
+=cut
+
+my @array = (1, 2, 3, 4);
+my $result = My::List::Util->sum(@array);
+print $result;
