@@ -18,3 +18,4 @@ if(-x $filename)
 {
     print "x+, ";
 }
+print hex "ff";
