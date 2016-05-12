@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 # Batch changing filenames and clear file. for example: chp6_exe*.pl to chp7_exe*.pl.  
-# Author:zhangfeng  cst.feng@gmail.com  2012-05-09
+# Author:zhangfeng   2012-05-09
 
 use warnings;
 use strict;
