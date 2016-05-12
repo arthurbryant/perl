@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 # This program crawl sina Email and return the mail list titles of the first page.  
 # Usage: ./crawler -emai xxxx -psw xxx 
-# Author:zhangfeng  cst.feng@gmail.com  2012-06-04
+# Author:zhangfeng 2012-06-04
 
 use warnings;
 use strict;
